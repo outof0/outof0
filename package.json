@@ -1,0 +1,19 @@
+{
+  "name": "outof0-landing",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "verify": "pnpm check && pnpm build"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.4",
+    "astro": "^5.15.1",
+    "typescript": "^5.7.3",
+    "wrangler": "^4.37.0"
+  }
+}

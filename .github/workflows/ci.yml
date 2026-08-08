@@ -1,0 +1,54 @@
+name: CI and deploy
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Verify Astro build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm verify
+
+  deploy:
+    name: Deploy to Cloudflare Pages
+    needs: verify
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment: production
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_PAGES_PROJECT: ${{ vars.CLOUDFLARE_PAGES_PROJECT || 'outof0' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
+      - name: Create Pages project when absent
+        run: |
+          if ! pnpm exec wrangler pages project list --json | jq -e --arg project "$CLOUDFLARE_PAGES_PROJECT" '.[] | select(."Project Name" == $project)' > /dev/null; then
+            pnpm exec wrangler pages project create "$CLOUDFLARE_PAGES_PROJECT" --production-branch=main
+          fi
+      - run: pnpm exec wrangler pages deploy dist --project-name="$CLOUDFLARE_PAGES_PROJECT" --branch=main
