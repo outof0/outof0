@@ -34,4 +34,4 @@ Also the source for the OutOf0 landing page — Astro, deployed to Cloudflare Pa
 push to `main`. Setup, local development, and deployment live in
 [`CONTRIBUTING.md`](./CONTRIBUTING.md). Brand tokens and logo sources are in [`brand/`](./brand/).
 
-<sub>MIT licensed · [hello.outof0@gmail.com](mailto:hello.outof0@gmail.com)</sub>
+<sub>[outof0.com](https://outof0.com) · MIT licensed · [hello.outof0@gmail.com](mailto:hello.outof0@gmail.com)</sub>
