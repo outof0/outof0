@@ -7,18 +7,19 @@
 
 **Local-first developer tools.**
 
-Three products. All MIT licensed. All built so the work happens on your device.
+65 tools and counting — MIT licensed, none of them asking for your data.
 
 </div>
 
 ---
 
-OutOf0 is an independent studio building tools for developers. Everything here follows one
-rule: the input stays on your machine, and the tool stays out of your way.
+OutOf0 is an independent studio shipping developer tools continuously — for the browser, the
+editor, the terminal, and the AI client. One rule holds across all of it: the input stays on
+your machine, and the tool stays out of your way.
 
 | # | Product | What it does |
 | :-: | --- | --- |
-| 01 | **[Kitland](https://kitland.dev)**<br><sub>[source](https://github.com/outof0/kitland)</sub> | A workbench of 64 developer tools — format, encode, generate, inspect, transform. Ships as a web app, a browser extension, a VS Code extension, and an MCP server. Nothing is uploaded. |
+| 01 | **[Kitland](https://kitland.dev)**<br><sub>[source](https://github.com/outof0/kitland)</sub> | 65 local-first developer tools — format, encode, generate, inspect, transform. Web app, browser extension, VS Code extension, and MCP server. Nothing is uploaded. |
 | 02 | **[AnyPick](https://anypick.dev)**<br><sub>[source](https://github.com/outof0/anypick)</sub> | Points any AI coding CLI at any account you already own. `anypick use claude --with grok/work` runs Claude Code on your Grok account. Auth snapshots, local proxies, protocol conversion. |
 | 03 | **[GitView](https://gitview.dev)**<br><sub>[source](https://github.com/outof0/gitview)</sub> | A Git workspace for VS Code. True three-way merge built from real Git index stages (`:1:` `:2:` `:3:`) instead of `<<<<<<<` markers, plus history, blame, compare, and hosted review. |
 
