@@ -7,15 +7,15 @@
 
 **Local-first developer tools.**
 
-65 tools and counting — MIT licensed, none of them asking for your data.
+We're building them to serve you well — 65 and counting, all MIT licensed, none asking for your data.
 
 </div>
 
 ---
 
-OutOf0 is an independent studio shipping developer tools continuously — for the browser, the
-editor, the terminal, and the AI client. One rule holds across all of it: the input stays on
-your machine, and the tool stays out of your way.
+An independent studio, shipping continuously for the browser, the editor, the terminal, and the
+AI client. One rule holds across all of it: the input stays on your machine, and the tool stays
+out of your way.
 
 | # | Product | What it does |
 | :-: | --- | --- |

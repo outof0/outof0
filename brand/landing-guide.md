@@ -38,7 +38,8 @@ The landing page should:
 **From zero, forward.**
 
 ### Supporting copy
-We build developer products and open tools that move ideas from zero to impact.
+We're building developer tools to serve you well — local-first, MIT licensed, and none of them
+asking for your data.
 
 ### CTAs
 - Primary: Explore Products
@@ -119,8 +120,12 @@ Include:
 ### Hero
 OutOf0
 From zero, forward.
-We build developer products and open tools that move ideas from zero to impact.
+We're building developer tools to serve you well — local-first, MIT licensed, and none of them
+asking for your data.
 
 ### CTA strip
 Ready to move from zero to impact?
 Build, explore, contribute.
+
+Note on tone: the org exists to serve the people using the tools. Lead with that, not with the
+size of the catalogue. Counts are supporting detail.
