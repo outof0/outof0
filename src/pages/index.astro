@@ -1,6 +1,11 @@
 ---
 const githubOrgUrl = 'https://github.com/outof0';
 
+// Derived from `site` in astro.config.mjs so the canonical origin is declared once.
+const siteUrl = Astro.site ?? new URL('https://outof0.com');
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
+const ogImageUrl = new URL('og-image.png', siteUrl).href;
+
 const products = [
   {
     index: '01',
@@ -39,9 +44,19 @@ const projects = [
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#0B0D0F" />
     <meta name="description" content="OutOf0 builds developer products and open tools that move ideas from zero to impact." />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="OutOf0" />
     <meta property="og:title" content="OutOf0 — From zero, forward." />
     <meta property="og:description" content="Developer products and open tools for builders." />
-    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="OutOf0 — From zero, forward." />
+    <meta name="twitter:description" content="Developer products and open tools for builders." />
+    <meta name="twitter:image" content={ogImageUrl} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <title>OutOf0 — From zero, forward.</title>
   </head>

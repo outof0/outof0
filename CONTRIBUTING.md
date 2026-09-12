@@ -37,9 +37,14 @@ The deploy job creates the Cloudflare Pages project automatically on its first r
 publishes `dist/` on every later push to `main`. Do not run a manual
 `wrangler pages deploy` locally.
 
-The project currently serves from `outof0.pages.dev`. The `outof0.dev` custom domain is
-declared in `astro.config.mjs` but does not resolve — see
-[`docs/github-org-profile.md`](./docs/github-org-profile.md#1-the-outof0dev-domain-is-not-resolving).
+The site serves from `https://outof0.com`, attached to the Cloudflare Pages project as a
+custom domain. `www.outof0.com` has no DNS record — add one plus a redirect rule if that
+matters to you.
+
+`site` in `astro.config.mjs` is the single source of the canonical origin. The page head
+derives its `canonical`, `og:url`, and `og:image` URLs from it, so change the domain there
+and nowhere else. See
+[`docs/github-org-profile.md`](./docs/github-org-profile.md#1-domains).
 
 ## Brand assets
 

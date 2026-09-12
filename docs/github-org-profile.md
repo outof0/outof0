@@ -6,21 +6,21 @@ through it once, and re-check it whenever the product line changes.
 The goal: someone who lands on [github.com/outof0](https://github.com/outof0) should
 understand what OutOf0 builds, and reach a product, in under ten seconds.
 
-## 1. The outof0.dev domain is not resolving
+## 1. Domains
 
-`astro.config.mjs` declares `site: 'https://outof0.dev'` and the org brand assumes
-`outof0.dev`, but the domain has **no DNS records at all** — `A` and `CNAME` both come back
-empty, so `https://outof0.dev` does not load. The site itself is fine; it serves from
-`https://outof0.pages.dev`.
+`outof0.com` is the organization domain. It resolves through Cloudflare and serves the
+landing page — `https://outof0.com` returns `200`. Use it in the profile.
 
-Fix one of these before pointing any public profile at `outof0.dev`:
+| Domain | State |
+| --- | --- |
+| `outof0.com` | **Live.** The org domain. |
+| `www.outof0.com` | **No DNS record.** Add a `CNAME` to the Pages project plus a redirect rule if people are likely to type it. |
+| `outof0.dev` | Does not resolve. It was declared in `astro.config.mjs` until 2026-09-12; it was never the real domain. |
+| `kitland.dev`, `gitview.dev`, `anypick.dev` | Live, `200`. |
 
-- Add the custom domain in Cloudflare Pages → project `outof0` → **Custom domains**, then
-  create the `CNAME` record Cloudflare shows you.
-- Or, until then, set the org website to `https://outof0.pages.dev`.
-
-Every other product domain resolves and returns `200`: `kitland.dev`, `gitview.dev`,
-`anypick.dev`.
+`site` in `astro.config.mjs` is the single source of the canonical origin. The page head
+derives `canonical`, `og:url`, and `og:image` from it, so the domain is declared in exactly
+one place.
 
 ## 2. Organization profile
 
@@ -30,7 +30,7 @@ Every other product domain resolves and returns `200`: `kitland.dev`, `gitview.d
 | --- | --- |
 | Display name | `OutOf0` |
 | Bio | `Independent studio building local-first developer tools. Kitland · AnyPick · GitView. All MIT.` |
-| URL | `https://outof0.dev` (see section 1) |
+| URL | `https://outof0.com` |
 | Email | `hello.outof0@gmail.com` |
 | Location | *(leave empty rather than inventing one)* |
 
@@ -78,7 +78,7 @@ gh auth refresh -s admin:org
 gh api -X PATCH /orgs/outof0 \
   -f name="OutOf0" \
   -f description="Independent studio building local-first developer tools. Kitland · AnyPick · GitView. All MIT." \
-  -f blog="https://outof0.pages.dev" \
+  -f blog="https://outof0.com" \
   -f email="hello.outof0@gmail.com"
 
 gh repo edit outof0/kitland \
