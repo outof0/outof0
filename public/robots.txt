@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://outof0.com/sitemap.xml

@@ -13,3 +13,10 @@ The files in this directory are the only retained brand source for the landing p
 - `favicon.svg` — favicon source.
 
 Production-ready copies of assets used by Astro live in `public/`. Do not change the logo assets in `public/` without mirroring the relevant source asset here.
+
+## Generated assets
+
+`public/favicon.ico` and `public/apple-touch-icon.png` are rasterized from
+`logos/symbol-reverse.svg` by `scripts/generate-icons.py`. Regenerate them with that script
+rather than editing the PNGs, and keep the geometry in the script in sync if the symbol
+changes. `logos/symbol-primary.svg` stays the vector favicon the site declares first.

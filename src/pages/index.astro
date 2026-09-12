@@ -6,6 +6,17 @@ const siteUrl = Astro.site ?? new URL('https://outof0.com');
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
 const ogImageUrl = new URL('og-image.png', siteUrl).href;
 
+const organization = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'OutOf0',
+  url: siteUrl.href,
+  logo: new URL('brand/symbol-primary.svg', siteUrl).href,
+  email: 'hello.outof0@gmail.com',
+  description: 'OutOf0 builds developer products and open tools that move ideas from zero to impact.',
+  sameAs: [githubOrgUrl],
+};
+
 const products = [
   {
     index: '01',
@@ -58,6 +69,9 @@ const projects = [
     <meta name="twitter:description" content="Developer products and open tools for builders." />
     <meta name="twitter:image" content={ogImageUrl} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <script type="application/ld+json" set:html={JSON.stringify(organization)} />
     <title>OutOf0 — From zero, forward.</title>
   </head>
   <body>
