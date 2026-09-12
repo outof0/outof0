@@ -1,24 +1,37 @@
-# OutOf0 landing
+<div align="center">
 
-Astro landing page for OutOf0, deployed automatically to Cloudflare Pages.
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./brand/logos/readme-banner-dark.svg">
+  <img src="./brand/logos/readme-banner-light.svg" alt="OutOf0 — From zero, forward." width="400">
+</picture>
 
-Brand sources are consolidated in [`brand/`](./brand/); the website only serves the required runtime assets in `public/`.
+**Local-first developer tools.**
 
-## Local development
+Three products. All MIT licensed. All built so the work happens on your device.
 
-```bash
-pnpm install
-pnpm dev
-```
+</div>
 
-## CI/CD
+---
 
-GitHub Actions runs type checks and a production build on every pull request. A push to `main` deploys the generated `dist/` directory to Cloudflare Pages.
+OutOf0 is an independent studio building tools for developers. Everything here follows one
+rule: the input stays on your machine, and the tool stays out of your way.
 
-Configure these in the GitHub **production environment** before the first merge to `main`:
+| # | Product | What it does |
+| :-: | --- | --- |
+| 01 | **[Kitland](https://kitland.dev)**<br><sub>[source](https://github.com/outof0/kitland)</sub> | A workbench of 64 developer tools — format, encode, generate, inspect, transform. Ships as a web app, a browser extension, a VS Code extension, and an MCP server. Nothing is uploaded. |
+| 02 | **[AnyPick](https://anypick.dev)**<br><sub>[source](https://github.com/outof0/anypick)</sub> | Points any AI coding CLI at any account you already own. `anypick use claude --with grok/work` runs Claude Code on your Grok account. Auth snapshots, local proxies, protocol conversion. |
+| 03 | **[GitView](https://gitview.dev)**<br><sub>[source](https://github.com/outof0/gitview)</sub> | A Git workspace for VS Code. True three-way merge built from real Git index stages (`:1:` `:2:` `:3:`) instead of `<<<<<<<` markers, plus history, blame, compare, and hosted review. |
 
-- `CLOUDFLARE_API_TOKEN` — repository secret with Cloudflare Pages edit permission.
-- `CLOUDFLARE_ACCOUNT_ID` — repository secret for the target Cloudflare account.
-- `CLOUDFLARE_PAGES_PROJECT` — optional repository variable. Defaults to `outof0`.
+### Why this shape
 
-The deploy job creates the Cloudflare Pages project automatically on its first run, then publishes `dist/` on every later push to `main`. Do not run a manual `wrangler pages deploy` locally.
+Most tools start by asking for your data. We think the opposite is more useful — it is why
+Kitland has no upload step, why AnyPick routes to accounts you already pay for instead of
+reselling access, and why GitView reads your local Git index rather than guessing from a diff.
+
+### This repository
+
+Also the source for the OutOf0 landing page — Astro, deployed to Cloudflare Pages on every
+push to `main`. Setup, local development, and deployment live in
+[`CONTRIBUTING.md`](./CONTRIBUTING.md). Brand tokens and logo sources are in [`brand/`](./brand/).
+
+<sub>MIT licensed · [hello.outof0@gmail.com](mailto:hello.outof0@gmail.com)</sub>
